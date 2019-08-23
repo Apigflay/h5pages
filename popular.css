@@ -46,19 +46,31 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     align-items: center; */
 }
 .index_area{
+    width: 0.15rem;
     float: left;
     height: 100%;
-    color:#FFFFFF;
+    color:#84838D;
     font-size: 0.16rem;
     line-height: 0.7rem;
     padding: 0 0.05rem;
 }
-.title_area{
-    float: left;
-    height: 100%;
-    width:2rem;
-    /* background: red; */
-    margin-left:0.1rem;
+.index_area1{
+    font-style:italic;
+    font-weight: 900;
+    font-size: 0.18rem;
+    color:#FFFF00;
+}
+.index_area2{
+    font-style:italic;
+    font-weight: 900;
+    font-size: 0.18rem;
+    color:#F2F2F2;
+}
+.index_area3{
+    font-style:italic;
+    font-weight: 900;
+    font-size: 0.18rem;
+    color:#E59064;
 }
 .num_area{
     float: right;
@@ -67,22 +79,64 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     font-size: 0.2rem;
     line-height: 0.7rem;
 }
+.title_area{
+    float: left;
+    height: 100%;
+    width:2rem;
+    /* background: red; */
+    margin-left:0.1rem;
+}
 .photo_area{
+    position: relative;
+    /* background: #352F62; */
     float: left;
     height: 0.5rem;
     width: 0.5rem;
     margin-top:0.1rem;
     margin-right: 0.1rem;
 }
-.photo_area img{
+.photo_area .bgimg{
+    position: absolute;
+    height: 0.3rem;
+    border-radius: 0.5rem;
+    top: -0.1rem;
+    left: -0.1rem;
+}
+.photo_area .img{
     height: 0.5rem;
     border-radius: 0.5rem;
 }
 .nickname_area{
-    
+    float: left;
+    /* background:red; */
     margin-top: 0.1rem;
     color: #fff;
 }
-.nickname_area .div .img{
+.nickname_area .p{
     height: 0.2rem;
+    line-height: 0.2rem;
+}
+.nickname_area .div{
+    height: 0.3rem;
+    color:#FD1CEA;
+}
+.nickname_area .div .img{
+    margin-top: 0.05rem;
+    height: 0.2rem;
+}
+.nickname_area .div .num{
+    /* background: blue; */
+    position: relative;
+    height: 0.2rem;
+    right:0.3rem;
+    font-size: 0.14rem;
+    line-height: 0.15rem;
+    color:#000;
+}
+.nickname_area .div .male{
+    position: relative;
+    height: 0.2rem;
+    right:0.3rem;
+    font-size: 0.14rem;
+    line-height: 0.2rem;
 }

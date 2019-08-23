@@ -16,7 +16,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
 //引入该flexible.min.js
-!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(375,375);
+!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(375,1080);
 </script>
 </head>
   <body>
@@ -26,32 +26,25 @@
             <p :class="index==listState?'choosep':'p'" v-for="(item, index) in listName" :key="index" :id="index" @click="goList">{{item}}</p>
           </div>
           <div class="list_area">
-              <!-- <div class="per" v-for="(item, index) in 12" :key="index" v-if="index==0">
-                <div class="index_area">{{index}}-0</div>
-                <div class="title_area">
-                  <div class="photo_area">
-                    <img src="./imgs/level1.png" alt="">
-                  </div>
-                  <div class="nickname_area">
-                    <p>Caauyy</p>
-                    <div class="div">
-                      <img class="img" src="./imgs/zhuan2.png" alt="">
-                    </div>
-                  </div>
-                </div>
-                <div class="num_area">2.16万</div> 
-              </div> -->
-             
               <div class="per" v-for="(item, index) in 12" :key="index">
-                <div class="index_area">{{index}}</div>
+                <div class="index_area index_area1" v-if="index==0">{{index}}</div>
+                <div class="index_area index_area2" v-else-if="index==1">{{index}}</div>
+                <div class="index_area index_area3" v-else-if="index==2">{{index}}</div>
+                <div class="index_area" v-else>{{index}}</div>
                 <div class="title_area">
                   <div class="photo_area">
-                    <img src="./imgs/level1.png" alt="">
+                    <img class="bgimg" src="./imgs/1.png" alt="" v-if="index==0">
+                    <img class="bgimg" src="./imgs/2.png" alt="" v-if="index==1">
+                    <img class="bgimg" src="./imgs/3.png" alt="" v-if="index==2">
+                    <img class="img" src="./imgs/level1.png" alt="">
                   </div>
                   <div class="nickname_area">
-                    <p>Caauyy</p>
+                    <p class="p">Caauyy</p>
                     <div class="div">
                       <img class="img" src="./imgs/zhuan2.png" alt="">
+                      <span class="num">107</span>
+                      <span class="male">♀</span>
+                      <!-- ♂ -->
                     </div>
                   </div>
                 </div>
@@ -69,7 +62,8 @@
         data(){
           return{
             listName:['周榜','月榜','总榜'],
-            ranktype:2,//1消费榜 2主播榜 3家族榜
+            ranktype:null,//1消费榜 2主播榜 3家族榜
+            useridx:null,//当前用idx
             timetype:2,//1 日榜，2 周榜，3 月榜，4 总榜
             listState:0,//列表榜单状态值判断
             infoData:[],//初始数据
@@ -77,20 +71,108 @@
 
             testData:[1],
             indexData:1,
+            data:{
+    "code": "100",
+    "msg": "success",
+    "data": {
+        "rankList": [
+            {
+                "pos": 1,
+                "sumprice": 836220,
+                "rankChange": 1,
+                "isFollow": 0,
+                "useridx": 60001067,
+                "myname": "大富豪",
+                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/15/22/0325_60001067.png?x-oss-process=style/250",
+                "grade": 25,
+                "level": 32,
+                "gender": 0,
+                "isOnline": 0
+            },
+            {
+                "pos": 2,
+                "sumprice": 117000,
+                "rankChange": 1,
+                "isFollow": 0,
+                "useridx": 60001115,
+                "myname": "碎觉觉💤🍹",
+                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/01/11/4225_60001115.png?x-oss-process=style/250",
+                "grade": 9,
+                "level": 1,
+                "gender": 0,
+                "isOnline": 0
+            },
+            {
+                "pos": 3,
+                "sumprice": 110960,
+                "rankChange": 1,
+                "isFollow": 0,
+                "useridx": 60001217,
+                "myname": "安安安安朵",
+                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201907/31/21/1237_60001217.png?x-oss-process=style/250",
+                "grade": 11,
+                "level": 1,
+                "gender": 0,
+                "isOnline": 0
+            },
+            {
+                "pos": 4,
+                "sumprice": 24720,
+                "rankChange": 1,
+                "isFollow": 0,
+                "useridx": 60001105,
+                "myname": "娇娇！新人多多关",
+                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/20/23/1311_60001105.png?x-oss-process=style/250",
+                "grade": 12,
+                "level": 1,
+                "gender": 1,
+                "isOnline": 0
+            },
+            {
+                "pos": 5,
+                "sumprice": 12680,
+                "rankChange": 1,
+                "isFollow": 0,
+                "useridx": 60001388,
+                "myname": "Ok",
+                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/20/15/0155_60001388.png?x-oss-process=style/250",
+                "grade": 3,
+                "level": 1,
+                "gender": 0,
+                "isOnline": 0
+            }
+        ],
+        "totalCount": 5,
+        "totalPage": 1,
+        "isShow": 0
+    }
+}
           }   
         },
         created() {
           // this.add()
-          this.getMessage()
+          this.getMessage();
+          this.getUrlData()
         },
         computed:{
         },
         methods:{
+          //获取 ranktype useridx 的公共函数
+          GetQueryString:function(name) { //name为要获得的参数名字
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
+            var r = window.location.search.substr(1).match(reg)
+            if(r != null) return decodeURI(r[2])
+            return null;
+          },
+          getUrlData:function(){
+            console.log(this.GetQueryString('ranktype'));
+            console.log(this.GetQueryString('useridx'));
+          },
           getMessage:function(){
             axios.post('http://47.112.144.241:9001/Rank/totalRankData', {
               ranktype: this.ranktype,
               timetype: this.timetype,
-              useridx: 60001067,
+              useridx: this.useridx,
               page: 1,
             })
             .then(function (response) {

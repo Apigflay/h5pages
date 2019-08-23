@@ -1,0 +1,119 @@
+*{padding:0;margin:0}
+body,html,#app{width: 100%;height: 100%;}
+.contenter{
+    /* padding: 0 0.15rem; */
+    width: 3.75rem;
+}
+.num_area{
+    padding:0.48rem 0.15rem 0.42rem 0.15rem;
+    border-bottom: 1px solid #EEEEEE;
+}
+.num_area .img{
+    float: left;
+    height: 0.4rem;
+}
+.num_area .div{
+    padding-left: 0.4rem;
+}
+.num_area .p1{
+    font-size: 0.4rem;
+    font-weight: 900;
+    line-height: 0.36rem;
+}
+.num_area .p2{
+    margin-top: 0.08rem;
+    font-size: 0.16rem;
+}
+.card_area{
+    height: 0.5rem;
+    border-bottom: 1px solid #EEEEEE;
+}
+.card_area .div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card_area .div .img{
+    height: 0.23rem;
+ }
+.card_area .div .fang{
+    margin:0 4px;
+}
+.card_area .div .card{
+    padding:1px 4px;
+    border:1px solid #3F86FF;
+    color:#3F86FF;
+    margin:0 4px;
+    font-size: 0.12rem;
+    line-height: 0.16rem;
+    border-radius: 3px;
+}
+.addcard_area{
+    padding:0.07rem 0.15rem 0 0.15rem;
+    height: 0.73rem;
+    border-bottom: 1px solid #EEEEEE;
+    color: #5E616B;
+}
+.addcard_area .div{
+    display: flex;
+}
+.addcard_area .div .add{
+    width:0.2rem;
+    height: 0.2rem;
+    border-radius: 0.1rem;
+    border:1px solid #9D9EA7;
+    line-height: 0.2rem;
+    text-align: center;
+    margin-right: 0.1rem;
+    /* margin-left: 0.02rem; */
+}
+.zfb_area,.wx_area,.card_area{
+    padding:0 0.15rem;
+    height: 0.5rem;
+    border-bottom: 1px solid #EEEEEE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.zfb_area .div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.zfb_area .div .img{
+    height: 0.23rem;
+ }
+.zfb_area .div span{
+    margin:0 4px;
+}
+.wx_area{
+    margin-bottom: 1.28rem; 
+}
+.wx_area .div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wx_area .div .img{
+   height: 0.23rem;
+}
+.wx_area .div span{
+    margin:0 4px;
+}
+.radio{
+    width: 0.2rem;
+    height: 0.2rem;
+    color: #3F86FF;
+    background: #3F86FF;
+}
+.pay_btn{
+    height: 0.5rem;
+    width: 3.45rem;
+    background: #190C45;
+    border-radius: 0.25rem;
+    line-height: 0.5rem;
+    text-align: center;
+    color:#FFFFFF;
+    margin-top: 1.78rem;
+    margin:auto;
+}

@@ -16,7 +16,7 @@
 <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 <script type="text/javascript">
 //引入该flexible.min.js
-!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(375,375);
+!function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(375,1080);
 </script>
 </head>
   <body>
@@ -28,17 +28,17 @@
             <img src="./imgs/jinbi1.png" alt="">
             <span>897,720</span>
           </div>
-          <div class="info">充值明细</div>
+          <div class="info" @click="goInfo">充值明细</div>
         </div>
         <p class="payNum">请选择充值金额：</p>
         <div class="pay_area">
-          <div class="per_pay" v-for="(item, index) in 6" :key="index">
+          <div :class="perBg==index?'per_pay per_pay_bg':'per_pay'" v-for="(item, index) in 6" :key="index" :id="index" @click="changeBg">
             <img src="./imgs/jinbi1.png" alt="">
             <p class="p1">6000币</p>
             <p class="p2">￥6.00</p>
           </div>
         </div>
-        <div class="pay_button">充值</div>
+        <div class="pay_button" @click="goPay">充值</div>
 
       </div>
     </div>
@@ -49,6 +49,8 @@
         el:'#app',
         data(){
           return{
+            perBg:0,//初始选中状态
+            
             listName:['周榜','月榜','总榜'],
             listState:0,//
             testData:[1],
@@ -65,9 +67,15 @@
             }
         },
         methods:{
-          goList:function(e){
-            this.listState=e.currentTarget.id;
-            console.log(e.currentTarget.id)
+          changeBg:function(e){
+            this.perBg=e.currentTarget.id;
+            console.log("点击第"+(e.currentTarget.id*1+1)+"个")
+          },
+          goInfo:function(){
+            console.log("充值明细点击")
+          },
+          goPay:function(){
+            console.log("充值点击")
           },
           add:function(){
             axios.get('http://192.168.84.170:5000/LinkService/Auto/MixVerifyCode')
@@ -81,11 +89,11 @@
             this.indexData++;
             this.testData.push(this.indexData)
           },	
-        },
-        beforeMount(){
-        },
-        mounted(){
-        },
+          },
+          beforeMount(){
+          },
+          mounted(){
+          },
        
     })
   </script>
