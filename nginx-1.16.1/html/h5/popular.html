@@ -12,8 +12,10 @@
 <meta content="" name="author"/>
 <title></title>
 <link rel="stylesheet" href="./popular.css">
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+<script src="./axios.js"></script>
+<script src="./vue.js"></script>
 <script type="text/javascript">
 //引入该flexible.min.js
 !function(e,t){function n(){var n=l.getBoundingClientRect().width;t=t||540,n>t&&(n=t);var i=100*n/e;r.innerHTML="html{font-size:"+i+"px;}"}var i,d=document,o=window,l=d.documentElement,r=document.createElement("style");if(l.firstElementChild)l.firstElementChild.appendChild(r);else{var a=d.createElement("div");a.appendChild(r),d.write(a.innerHTML),a=null}n(),o.addEventListener("resize",function(){clearTimeout(i),i=setTimeout(n,300)},!1),o.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),"complete"===d.readyState?d.body.style.fontSize="16px":d.addEventListener("DOMContentLoaded",function(e){d.body.style.fontSize="16px"},!1)}(375,1080);
@@ -167,9 +169,12 @@
           getUrlData:function(){
             console.log(this.GetQueryString('ranktype'));
             console.log(this.GetQueryString('useridx'));
+            // console.log(this.data.data)
           },
           getMessage:function(){
-            axios.post('http://47.112.144.241:9001/Rank/totalRankData', {
+            this.timetype++;
+            console.log(this.timetype)
+            axios.post('/Rank/totalRankData', {
               ranktype: this.ranktype,
               timetype: this.timetype,
               useridx: this.useridx,
