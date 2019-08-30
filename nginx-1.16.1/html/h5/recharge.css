@@ -1,5 +1,47 @@
 *{padding:0;margin:0}
 body,html,#app{width: 100%;height: 100%;}
+.web{
+    height: 0.88rem;
+    width: 100%;
+    background-image: url(./imgs/recharge_web.png);
+    background-size: 100% 100%;
+    /* display: none; */
+}
+.top{
+    height: 1.48rem;
+    width: 100%;
+    background-image: url(./imgs/recharge_top.png);
+    background-size: 100% 100%;
+    text-align: center;
+}
+.top .img{
+    height: 0.76rem;
+    width: 0.76rem;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 0.05rem 0;
+}
+.top .level{
+    height: 0.22rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 0.16rem;
+    position: relative;
+}
+.top .level img{
+    height: 0.22rem;
+}
+.top .level em{
+    font-style: normal;
+    position: absolute;
+    height: 0.16rem;
+    width: 0.34rem;
+    top:0.06rem;
+    left: 2.19rem;
+    line-height: 0.16rem;
+}
 .contenter{
     /* border-radius: 60px 0 0 0;
     width: 3.75rem;

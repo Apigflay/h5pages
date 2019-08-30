@@ -1,27 +1,34 @@
 *{padding:0;margin:0}
 body,html,#app,.contenter{width: 100%;height: 100%;}
+.popularBg{
+    height: 2.15rem;
+    width: 100%;
+    /* position: absolute; */
+    background-image: url(./imgs/popularBg.png)
+}
 .contenter{
+    margin-top:-1.23rem;
     border-radius: 60px 0 0 0;
     width: 3.75rem;
-    height: 100%;
+    /* height: 100%; */
     background-image: linear-gradient(180deg, #352F62 0%,  #000000 100%);
-    /* overflow: hidden; */
     overflow: scroll;
 }
 .tips_area{
     height: 0.3rem;
     width:3.45rem;
-    background: #334489;
+    background:rgba(63,134,255,0.3);
     margin-left: 0.15rem;
-    position: relative;
-    top: 0.42rem;
-    margin-bottom: 0.6rem;
+    /* position: relative; */
+    /* top: 0.42rem; */
+    margin-top: 0.42rem;
+    margin-bottom: 0.2rem;
     border-radius: 0.15rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.tips_area p{
+.tips_area div{
     flex: 1;
     text-align: center;
     height: 0.3rem;
@@ -29,10 +36,16 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     line-height: 0.3rem;
     color:#fff;
 }
+.tips_area div img{
+    height: 0.18rem;
+    margin-top: 0.06rem;
+}
 .tips_area .choosep{
-    background: #3F86FF;
+    background:rgba(63,134,255,1);
 }
 .list_area{
+    /* overflow: scroll; */
+    /* background-image: linear-gradient(180deg, #352F62 0%,  #000000 100%); */
     margin-top:0.3rem;
 }
 .list_area .per{
@@ -49,28 +62,15 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     width: 0.15rem;
     float: left;
     height: 100%;
-    color:#84838D;
-    font-size: 0.16rem;
+    color:rgba(255,255,255,1);
+    font-family:DINAlternate;
+    font-size: 0.19rem;
     line-height: 0.7rem;
     padding: 0 0.05rem;
+    text-align: center;
 }
-.index_area1{
-    font-style:italic;
-    font-weight: 900;
-    font-size: 0.18rem;
-    color:#FFFF00;
-}
-.index_area2{
-    font-style:italic;
-    font-weight: 900;
-    font-size: 0.18rem;
-    color:#F2F2F2;
-}
-.index_area3{
-    font-style:italic;
-    font-weight: 900;
-    font-size: 0.18rem;
-    color:#E59064;
+.index_area1 .img{
+    height: 0.16rem;
 }
 .num_area{
     float: right;
@@ -78,6 +78,15 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     color:#3F86FF;
     font-size: 0.2rem;
     line-height: 0.7rem;
+}
+.num_area1{
+    color:#FFFF00;
+}
+.num_area2{
+    color:#F2F2F2;
+}
+.num_area3{
+    color:#E59064;
 }
 .title_area{
     float: left;
@@ -100,7 +109,7 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     height: 0.3rem;
     border-radius: 0.5rem;
     top: -0.1rem;
-    left: -0.1rem;
+    left: -0.06rem;
 }
 .photo_area .img{
     height: 0.5rem;
@@ -115,10 +124,15 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
 .nickname_area .p{
     height: 0.2rem;
     line-height: 0.2rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 1.4rem;
 }
 .nickname_area .div{
     height: 0.3rem;
-    color:#FD1CEA;
+    position: relative;
+    /* background: red; */
 }
 .nickname_area .div .img{
     margin-top: 0.05rem;
@@ -126,17 +140,17 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
 }
 .nickname_area .div .num{
     /* background: blue; */
-    position: relative;
-    height: 0.2rem;
-    right:0.3rem;
+    position: absolute;
+    height: 0.15rem;
+    width: 0.4rem;
+    left: 0.1rem;
+    top: 0.1rem;
     font-size: 0.14rem;
     line-height: 0.15rem;
-    color:#000;
+    text-align: center;
+    color: #000;
 }
-.nickname_area .div .male{
-    position: relative;
-    height: 0.2rem;
-    right:0.3rem;
-    font-size: 0.14rem;
-    line-height: 0.2rem;
+.nickname_area .div .imgx{
+    height: 0.14rem;
+    margin-left: 0.15rem;
 }

@@ -1,27 +1,129 @@
 *{padding:0;margin:0}
 body,html,#app,.contenter{width: 100%;height: 100%;}
+.web{
+    height: 0.88rem;
+    background-image: url(./imgs/web.png);
+    background-size: 100% 100%;
+}
+.topareaBg{
+    height: 2.77rem;
+    padding: 0 0.15rem;
+    background-image: url(./imgs/topBg.png);
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.topareaBg .list{
+    position: relative;
+    padding-top: 0.62rem;
+    text-align: center;
+    width: 0.86rem;
+    height: 1.8rem;
+    /* border:1px solid #3F86FF;  */
+}
+.topareaBg .list .tou{
+    position: absolute;
+    top:0.5rem;
+    left: 0;
+    height: 0.39rem;
+}
+.topareaBg .list .tou1{
+    position: absolute;
+    height: 0.85rem;
+    top: -0.14rem;
+}
+.topareaBg .list .photo{
+    position: relative;
+    z-index: 2;
+    height: 0.5rem;
+    border-radius: 50%;
+}
+.topareaBg .list .name{
+    height: 0.2rem;
+    font-size: 0.16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.topareaBg .list .name span{
+    max-width: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 0.1rem;
+}
+.topareaBg .list .name img{
+    height: 0.14rem;
+}
+.topareaBg .list .level{
+    position: relative;
+    padding: 0.05rem 0;
+}
+.topareaBg .list .level img{
+    height: 0.2rem;
+}
+.topareaBg .list .level span{
+    position: absolute;
+    height: 0.14rem;
+    width: 0.34rem;
+    top: 0.1rem;
+    left: 0.33rem;
+    text-align: center;
+    line-height: 0.14rem;
+}
+.topareaBg .list .p1{
+    font-size: 0.18rem;
+    color: #FFFFFF;
+}
+.topareaBg .list .p2{
+    font-size: 0.18rem;
+    color: #FDFF00;
+}
+.topareaBg .list .p3{
+    font-size: 0.18rem;
+    color: #E59064;
+}
+/*  */
+.topareaBg .list1{
+    padding-top: 0.32rem;
+    width: 1.2rem;
+    /* border:1px solid red; */
+}
+.topareaBg .list1 .photo{
+    height: 0.7rem;
+    border-radius: 50%;
+}
+.topareaBg .list1 .name span{
+    max-width: 0.96rem;
+}
+.topareaBg .list1 .level span{
+    left: 0.49rem;
+}
+/* 榜单 */
 .contenter{
+    margin-top:-0.71rem;
     border-radius: 60px 0 0 0;
     width: 3.75rem;
-    height: 100%;
+    background: #fff;
     /* background-image: linear-gradient(180deg, #352F62 0%,  #000000 100%); */
-    /* overflow: hidden; */
     overflow: scroll;
 }
 .tips_area{
     height: 0.3rem;
     width:3.45rem;
-    background: #334489;
+    background:rgba(63,134,255,0.3);
     margin-left: 0.15rem;
-    position: relative;
-    top: 0.42rem;
-    margin-bottom: 0.6rem;
+    /* position: relative; */
+    /* top: 0.42rem; */
+    margin-top: 0.42rem;
+    margin-bottom: 0.2rem;
     border-radius: 0.15rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.tips_area p{
+.tips_area div{
     flex: 1;
     text-align: center;
     height: 0.3rem;
@@ -29,10 +131,16 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     line-height: 0.3rem;
     color:#fff;
 }
+.tips_area div img{
+    height: 0.18rem;
+    margin-top: 0.06rem;
+}
 .tips_area .choosep{
-    background: #3F86FF;
+    background:rgba(63,134,255,1);
 }
 .list_area{
+    /* overflow: scroll; */
+    /* background-image: linear-gradient(180deg, #352F62 0%,  #000000 100%); */
     margin-top:0.3rem;
 }
 .list_area .per{
@@ -49,28 +157,15 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     width: 0.15rem;
     float: left;
     height: 100%;
-    color:#84838D;
-    font-size: 0.16rem;
+    color:#000000;
+    font-family:DINAlternate;
+    font-size: 0.19rem;
     line-height: 0.7rem;
     padding: 0 0.05rem;
+    text-align: center;
 }
-.index_area1{
-    font-style:italic;
-    font-weight: 900;
-    font-size: 0.18rem;
-    color:#FFFF00;
-}
-.index_area2{
-    font-style:italic;
-    font-weight: 900;
-    font-size: 0.18rem;
-    color:#F2F2F2;
-}
-.index_area3{
-    font-style:italic;
-    font-weight: 900;
-    font-size: 0.18rem;
-    color:#E59064;
+.index_area1 .img{
+    height: 0.16rem;
 }
 .num_area{
     float: right;
@@ -79,6 +174,15 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     font-size: 0.2rem;
     line-height: 0.7rem;
 }
+/* .num_area1{
+    color:#FFFF00;
+}
+.num_area2{
+    color:#F2F2F2;
+}
+.num_area3{
+    color:#E59064;
+} */
 .title_area{
     float: left;
     height: 100%;
@@ -100,7 +204,7 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     height: 0.3rem;
     border-radius: 0.5rem;
     top: -0.1rem;
-    left: -0.1rem;
+    left: -0.06rem;
 }
 .photo_area .img{
     height: 0.5rem;
@@ -110,15 +214,20 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
     float: left;
     /* background:red; */
     margin-top: 0.1rem;
-    color: #fff;
+    color: #000000;
 }
 .nickname_area .p{
     height: 0.2rem;
     line-height: 0.2rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 1.4rem;
 }
 .nickname_area .div{
     height: 0.3rem;
-    color:#FD1CEA;
+    position: relative;
+    /* background: red; */
 }
 .nickname_area .div .img{
     margin-top: 0.05rem;
@@ -126,17 +235,17 @@ body,html,#app,.contenter{width: 100%;height: 100%;}
 }
 .nickname_area .div .num{
     /* background: blue; */
-    position: relative;
-    height: 0.2rem;
-    right:0.3rem;
+    position: absolute;
+    height: 0.15rem;
+    width: 0.4rem;
+    left: 0.1rem;
+    top: 0.1rem;
     font-size: 0.14rem;
     line-height: 0.15rem;
-    color:#000;
+    text-align: center;
+    color: #000;
 }
-.nickname_area .div .male{
-    position: relative;
-    height: 0.2rem;
-    right:0.3rem;
-    font-size: 0.14rem;
-    line-height: 0.2rem;
+.nickname_area .div .imgx{
+    height: 0.14rem;
+    margin-left: 0.15rem;
 }

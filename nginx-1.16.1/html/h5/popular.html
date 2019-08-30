@@ -12,8 +12,6 @@
 <meta content="" name="author"/>
 <title></title>
 <link rel="stylesheet" href="./popular.css">
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 <script src="./axios.js"></script>
 <script src="./vue.js"></script>
 <script type="text/javascript">
@@ -23,34 +21,42 @@
 </head>
   <body>
     <div id="app">
+      <div class="popularBg"></div>
       <div class="contenter">
           <div class="tips_area">
-            <p :class="index==listState?'choosep':'p'" v-for="(item, index) in listName" :key="index" :id="index" @click="goList">{{item}}</p>
+            <div :class="index==listState?'choosep':'p'" v-for="(item, index) in listName" :key="index" :id="index" @click="goList">
+                <img class="img" :src="item[0]" alt="" v-if="index!=listState">
+                <img class="img" :src="item[1]" alt="" v-if="index==listState">
+            </div>
           </div>
           <div class="list_area">
-              <div class="per" v-for="(item, index) in 12" :key="index">
-                <div class="index_area index_area1" v-if="index==0">{{index}}</div>
-                <div class="index_area index_area2" v-else-if="index==1">{{index}}</div>
-                <div class="index_area index_area3" v-else-if="index==2">{{index}}</div>
-                <div class="index_area" v-else>{{index}}</div>
+              <div class="per" v-for="(item, index) in infoData" :key="index">
+                <div class="index_area index_area1" v-if="index==0"><img class="img" src="./imgs/1index.png" alt=""></div>
+                <div class="index_area index_area1" v-else-if="index==1"><img class="img" src="./imgs/2index.png" alt=""></div>
+                <div class="index_area index_area1" v-else-if="index==2"><img class="img" src="./imgs/3index.png" alt=""></div>
+                <div class="index_area" v-else>{{index+1}}</div>
                 <div class="title_area">
                   <div class="photo_area">
                     <img class="bgimg" src="./imgs/1.png" alt="" v-if="index==0">
                     <img class="bgimg" src="./imgs/2.png" alt="" v-if="index==1">
                     <img class="bgimg" src="./imgs/3.png" alt="" v-if="index==2">
-                    <img class="img" src="./imgs/level1.png" alt="">
+                    <img class="img" :src="item.smallpic" alt="">
                   </div>
                   <div class="nickname_area">
-                    <p class="p">Caauyy</p>
+                    <p class="p">{{item.myname}}</p>
                     <div class="div">
                       <img class="img" src="./imgs/zhuan2.png" alt="">
-                      <span class="num">107</span>
-                      <span class="male">♀</span>
+                      <span class="num">{{item.level}}</span>
+                      <img  class="imgx" v-if="item.gender==0" src="./imgs/female2.png" alt="">
+                      <img  class="imgx" v-if="item.gender==1" src="./imgs/male2.png" alt="">
                       <!-- ♂ -->
                     </div>
                   </div>
                 </div>
-                <div class="num_area">2.16万</div> 
+                <div class="num_area num_area1" v-if="index==0">{{item.sumprice}}</div> 
+                <div class="num_area num_area2" v-else-if="index==1">{{item.sumprice}}</div>
+                <div class="num_area num_area3" v-else-if="index==2">{{item.sumprice}}</div>
+                <div class="num_area" v-else>{{item.sumprice}}</div> 
               </div>
           </div>
 
@@ -63,96 +69,17 @@
         el:'#app',
         data(){
           return{
-            listName:['周榜','月榜','总榜'],
+            listName:[['./imgs/week2blue.png','./imgs/week2white.png'],['./imgs/month2blue.png','./imgs/month2white.png'],['./imgs/total2blue.png','./imgs/total2white.png']],
+            // listName:['周榜','月榜','总榜'],
             ranktype:null,//1消费榜 2主播榜 3家族榜
             useridx:null,//当前用idx
             timetype:2,//1 日榜，2 周榜，3 月榜，4 总榜
             listState:0,//列表榜单状态值判断
-            infoData:[],//初始数据
+            infoData:[],//初始榜单数据
 
-
-            testData:[1],
-            indexData:1,
-            data:{
-    "code": "100",
-    "msg": "success",
-    "data": {
-        "rankList": [
-            {
-                "pos": 1,
-                "sumprice": 836220,
-                "rankChange": 1,
-                "isFollow": 0,
-                "useridx": 60001067,
-                "myname": "大富豪",
-                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/15/22/0325_60001067.png?x-oss-process=style/250",
-                "grade": 25,
-                "level": 32,
-                "gender": 0,
-                "isOnline": 0
-            },
-            {
-                "pos": 2,
-                "sumprice": 117000,
-                "rankChange": 1,
-                "isFollow": 0,
-                "useridx": 60001115,
-                "myname": "碎觉觉💤🍹",
-                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/01/11/4225_60001115.png?x-oss-process=style/250",
-                "grade": 9,
-                "level": 1,
-                "gender": 0,
-                "isOnline": 0
-            },
-            {
-                "pos": 3,
-                "sumprice": 110960,
-                "rankChange": 1,
-                "isFollow": 0,
-                "useridx": 60001217,
-                "myname": "安安安安朵",
-                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201907/31/21/1237_60001217.png?x-oss-process=style/250",
-                "grade": 11,
-                "level": 1,
-                "gender": 0,
-                "isOnline": 0
-            },
-            {
-                "pos": 4,
-                "sumprice": 24720,
-                "rankChange": 1,
-                "isFollow": 0,
-                "useridx": 60001105,
-                "myname": "娇娇！新人多多关",
-                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/20/23/1311_60001105.png?x-oss-process=style/250",
-                "grade": 12,
-                "level": 1,
-                "gender": 1,
-                "isOnline": 0
-            },
-            {
-                "pos": 5,
-                "sumprice": 12680,
-                "rankChange": 1,
-                "isFollow": 0,
-                "useridx": 60001388,
-                "myname": "Ok",
-                "smallpic": "http://jinbaolive.oss-cn-shenzhen.aliyuncs.com/avator/201908/20/15/0155_60001388.png?x-oss-process=style/250",
-                "grade": 3,
-                "level": 1,
-                "gender": 0,
-                "isOnline": 0
-            }
-        ],
-        "totalCount": 5,
-        "totalPage": 1,
-        "isShow": 0
-    }
-}
           }   
         },
         created() {
-          // this.add()
           this.getMessage();
           this.getUrlData()
         },
@@ -172,17 +99,24 @@
             // console.log(this.data.data)
           },
           getMessage:function(){
-            this.timetype++;
-            console.log(this.timetype)
+            var that =this;
             axios.post('/Rank/totalRankData', {
-              ranktype: this.ranktype,
-              timetype: this.timetype,
-              useridx: this.useridx,
+              ranktype: that.ranktype,
+              timetype: that.timetype,
+              useridx: that.useridx,
               page: 1,
             })
             .then(function (response) {
-              console.log(response);
-              this.infoData=response.data
+              that.infoData=response.data.data.rankList;
+              //此处浅拷贝  下方改变原始数据变化
+              var arr=response.data.data.rankList;
+              arr.forEach(function(item,index,arr1){
+                if(item.sumprice>=10000){
+                  arr[index].sumprice=Math.floor(arr[index].sumprice/10000*100)/100+"万"
+                }else{
+
+                }
+              })  
             })
             .catch(function (error) {
               console.log(error);

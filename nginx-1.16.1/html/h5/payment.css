@@ -1,5 +1,12 @@
 *{padding:0;margin:0}
 body,html,#app{width: 100%;height: 100%;}
+.web{
+    height: 0.88rem;
+    width: 100%;
+    background-image: url(./imgs/recharge_web.png);
+    background-size: 100% 100%;
+    /* display: none; */
+}
 .contenter{
     /* padding: 0 0.15rem; */
     width: 3.75rem;
