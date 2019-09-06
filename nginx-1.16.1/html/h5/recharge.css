@@ -32,15 +32,17 @@ body,html,#app{width: 100%;height: 100%;}
 }
 .top .level img{
     height: 0.22rem;
+    z-index: 10;
 }
 .top .level em{
     font-style: normal;
     position: absolute;
-    height: 0.16rem;
+    height: 0.15rem;
     width: 0.34rem;
-    top:0.06rem;
-    left: 2.19rem;
+    top:0.04rem;
+    left: 2.3rem;
     line-height: 0.16rem;
+    background: #C531E9;
 }
 .contenter{
     /* border-radius: 60px 0 0 0;

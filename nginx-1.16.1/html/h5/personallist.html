@@ -24,10 +24,10 @@
       <div class="web"></div>
       <div class="topareaBg">
         <div class="list" :class="index==1?'list1':''" v-for="(item, index) in data" :key="index">
-          <img class="tou" src="./imgs/tou2.png" alt="" v-if="index==0">
+          <img class="tou tou2" src="./imgs/tou2.png" alt="" v-if="index==0">
           <img class="tou tou1" src="./imgs/tou1.png" alt="" v-if="index==1">
-          <img class="tou" src="./imgs/tou3.png" alt="" v-if="index==2">
-          <img class="photo" :src="item.smallpic" alt="">
+          <img class="tou tou3" src="./imgs/tou3.png" alt="" v-if="index==2">
+          <img class="photo" :class="index==2?'photo2':''" :src="item.smallpic" alt="">
           <div class="name">
             <span>{{item.myname}}</span>
             <img src="./imgs/male2.png" alt="">
